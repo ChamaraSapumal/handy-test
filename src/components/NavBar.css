@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
+
+.brand-name {
+  font-family: "Russo One", Courier, monospace;
+}
+
+@media (max-width: 991px) {
+  .sidebar {
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+  }
+
+  .dropdown-menu {
+    display: none;
+  }
+}
+
+.sign-up-btn {
+  background-color: #f94ca4;
+}
+
+@media (min-width: 992px) {
+  .nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+  }
+
+  /* Ensure submenus are displayed correctly on hover */
+  .dropdown-submenu {
+    position: relative;
+  }
+
+  .dropdown-submenu .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -1px;
+  }
+}
+
+/* General styling for a modern look */
+.navbar {
+  background-color: #343a40 !important;
+}
+
+.nav-link {
+  color: #ffffff !important;
+  transition: color 0.3s ease-in-out;
+}
+
+.nav-link:hover {
+  color: #f94ca4 !important;
+}
+
+.dropdown-menu {
+  background-color: #343a40;
+  border: none;
+}
+
+.dropdown-item {
+  color: #ffffff;
+}
+
+.dropdown-item:hover {
+  background-color: #f94ca4;
+  color: #ffffff;
+}
+
+.dropdown-submenu .dropdown-menu {
+  left: 100%;
+  top: 0;
+  margin-top: -1px;
+}
+
+.dropdown-submenu:hover > .dropdown-menu {
+  display: block;
+}
+
+.sign-up-btn {
+  background-color: #f94ca4;
+  color: #ffffff !important;
+}
+
+.sign-up-btn:hover {
+  background-color: #743ae1;
+  color: #ffffff !important;
+}

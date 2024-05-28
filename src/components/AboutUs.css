@@ -1,0 +1,19 @@
+/* Home.css */
+.container-cards {
+  padding-top: 5rem;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem; /* Adjust this value for the desired vertical spacing */
+}
+
+.card-custom {
+  width: 180px;
+  transition: transform 0.3s ease-in-out; /* Smooth transition for scaling effect */
+}
+
+.card-custom:hover {
+  transform: scale(1.1); /* Scale up the card on hover */
+}

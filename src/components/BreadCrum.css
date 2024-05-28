@@ -1,0 +1,36 @@
+.our-store-container {
+  padding: 20px;
+  background-image: url("/src/assets/images/breadcrumImg.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.breadcrumb-nav {
+  --bs-breadcrumb-divider: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E");
+
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.breadcrumb {
+  margin: 0;
+  background-color: transparent;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  content: var(--bs-breadcrumb-divider);
+}
+
+.breadcrumb-item a {
+  text-decoration: none;
+  color: #007bff;
+  transition: color 0.2s;
+}
+
+.breadcrumb-item a:hover {
+  color: #0056b3;
+}
+
+.breadcrumb-item.active {
+  color: #6c757d;
+}
