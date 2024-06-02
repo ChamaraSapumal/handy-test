@@ -5,38 +5,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page Not Found</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5/6b6M6iI8ePxUbHb3zY5EH1X/AUbT/GDTE3D8sD" crossorigin="anonymous">
     <style>
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Poppins', sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
-            background-color: #f8fafc;
-            color: #1f2937;
+            background: linear-gradient(135deg, #f9c8d9, #a18cd1, #fbc2eb);
+            background-size: 400% 400%;
+            animation: gradientAnimation 10s ease infinite;
+            color: #333;
+            overflow: hidden;
+        }
+
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
         }
 
         .container {
             text-align: center;
             max-width: 600px;
             padding: 2rem;
-            background-color: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
             animation: fadeIn 1s ease-in-out;
+            position: relative;
         }
 
         @keyframes fadeIn {
             from {
                 opacity: 0;
+                transform: scale(0.9);
             }
 
             to {
                 opacity: 1;
+                transform: scale(1);
             }
         }
 
@@ -44,7 +65,7 @@
             font-size: 3rem;
             margin: 0.5em 0;
             font-weight: 700;
-            color: #e11d48;
+            color: #ff6363;
         }
 
         p {
@@ -57,26 +78,64 @@
             display: inline-block;
             margin-top: 1em;
             padding: 0.75em 1.5em;
-            color: #ffffff;
-            background-color: #1f2937;
+            color: #fff;
+            background-color: #ff6363;
             text-decoration: none;
             border-radius: 4px;
-            font-weight: 500;
-            transition: background-color 0.3s ease;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
 
         a:hover {
-            background-color: #4b5563;
+            background-color: #ff3b3b;
+            transform: translateY(-2px);
         }
 
         .icon {
             font-size: 4rem;
-            color: #e11d48;
+            color: #ff6363;
             margin-bottom: 0.5em;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
         }
 
         .hidden {
             display: none;
+        }
+
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            animation: move 20s infinite;
+            bottom: -100px;
+            width: 40px;
+            height: 40px;
+        }
+
+        @keyframes move {
+            0% {
+                transform: translateY(0) translateX(0);
+            }
+
+            50% {
+                transform: translateY(-100vh) translateX(50px);
+            }
+
+            100% {
+                transform: translateY(0) translateX(0);
+            }
         }
     </style>
     <script>
@@ -87,17 +146,29 @@
                 window.location.replace('/handy-test');
             }, 2000);
         }, 3000);
+
+        // Create moving bubbles
+        document.addEventListener('DOMContentLoaded', () => {
+            for (let i = 0; i < 10; i++) {
+                const bubble = document.createElement('div');
+                bubble.className = 'bubble';
+                bubble.style.left = `${Math.random() * 100}vw`;
+                bubble.style.animationDuration = `${Math.random() * 15 + 10}s`;
+                bubble.style.animationDelay = `${Math.random() * 10}s`;
+                document.body.appendChild(bubble);
+            }
+        });
     </script>
 </head>
 
 <body>
     <div class="container">
         <i class="fas fa-exclamation-triangle icon"></i>
-        <h1>404 - Page Not Found</h1>
-        <p>We're sorry, but the page you were looking for doesn't exist.</p>
-        <p>You will be redirected to the homepage shortly.</p>
+        <h1>Oops! Lost in Space?</h1>
+        <p>It seems like you've ventured into uncharted territory.</p>
+        <p>Don't worry, we'll guide you back home in just a moment.</p>
         <p id="redirectMessage" class="hidden">Redirecting now...</p>
-        <a href="/handy-test">Go to Homepage Now</a>
+        <a href="/handy-test">Return to Safety</a>
     </div>
 </body>
 
